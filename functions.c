@@ -40,7 +40,6 @@ int convert_char_to_base10(char num, int *converted_num, int input_base)
 	return 0;
 }
 
-
 int convert_to_outputbase(int num, int outputbase)
 {
 	
