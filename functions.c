@@ -40,25 +40,27 @@ int convert_char_to_base10(char num, int *converted_num, int input_base)
 	return 0;
 }
 
-int convert_to_outputbase(int num, int outputbase)
+int convert_to_outputbase(int num, int outputbase,char output[])
 {
-	
-	int output[65];
-	int count = 0;
+	int count = count_loop(num, outputbase);
 	int i;
-	int mod_inputbase =(num % outputbase);
+	int mod_inputbase;
+	
+	output[count]='\0';
+	count = count -1;
 	
 	while(num != 0){
 		mod_inputbase =(num % outputbase);
 		if (mod_inputbase > 9){
-			output[count]=55+mod_inputbase;
+			output[count]='A' + mod_inputbase - 10;
 		} else{
-			output[count]=mod_inputbase;
+			output[count]='0'+mod_inputbase;
 		}
 		num = num/outputbase;
-		count++;
+		count--;
 	}
 	
+	/*
 	printf("Your answer is: ");
 	
 	for(i=count;i>0;i--)
@@ -72,6 +74,18 @@ int convert_to_outputbase(int num, int outputbase)
 			printf("%d",(output[i-1]));
 		}
 	}
-	printf("\n");
+	*/
 	return 0;
+}
+
+int count_loop(int num,int outputbase)
+{
+	int count=0;
+	
+	while(num!=0)
+	{
+		num = num/outputbase;
+		count++;
+	}
+	return count;
 }

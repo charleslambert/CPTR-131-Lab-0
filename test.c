@@ -3,13 +3,30 @@
 #include <assert.h>
 #include "test.h"
 
+	
+void f(char c[], int len)
+{
+	int i = 0;
+	while(i<len){
+		c[i] = 'A' + i;
+		i++;
+	}
+}
+
+
 int main()
 {
+	char c[10];
+	f(c,10);
+	printf("%s\n", c);
+	
 	test_input_base_to_base10();
 	test_convert_char_to_base10();
+	
+	
+	
 	return 0;
 }
-	
 
 void test_convert_char_to_base10()
 {
