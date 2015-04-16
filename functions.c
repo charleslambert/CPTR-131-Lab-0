@@ -27,7 +27,7 @@ int convert_char_to_base10(char num, int *converted_num, int input_base)
 	int digit;
 	
 	if (isalpha(num)){
-		digit = num - 'A' +10;
+		digit = num - 'A' +10; //This conversion is for Letter representations
 	}
 	else
 	{
@@ -59,22 +59,6 @@ int convert_to_outputbase(int num, int outputbase,char output[])
 		num = num/outputbase;
 		count--;
 	}
-	
-	/*
-	printf("Your answer is: ");
-	
-	for(i=count;i>0;i--)
-	{
-		if (output[i-1]>9)
-		{
-			printf("%c",((char) (output[i-1])));
-		}
-		else
-		{
-			printf("%d",(output[i-1]));
-		}
-	}
-	*/
 	return 0;
 }
 
